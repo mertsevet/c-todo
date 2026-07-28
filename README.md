@@ -9,8 +9,8 @@ struct, diziler, pointer, dinamik bellek, dosya okuma/yazma.
 
 ## Durum
 - [x] Görev struct'ı ve ekrana yazdırma
-- [ ] Menü döngüsü ve kullanıcıdan görev alma
-- [ ] Görev listeleme
+- [x] Menü döngüsü ve kullanıcıdan görev alma
+- [x] Görev listeleme
 - [ ] Tamamlandı işaretleme ve silme
 - [ ] Görevleri dosyaya kaydetme / yükleme
 
