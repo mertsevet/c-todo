@@ -11,7 +11,7 @@ struct, diziler, pointer, dinamik bellek, dosya okuma/yazma.
 - [x] Görev struct'ı ve ekrana yazdırma
 - [x] Menü döngüsü ve kullanıcıdan görev alma
 - [x] Görev listeleme
-- [ ] Tamamlandı işaretleme ve silme
+- [x] Tamamlandı işaretleme ve silme
 - [ ] Görevleri dosyaya kaydetme / yükleme
 
 ## Derleme ve çalıştırma
