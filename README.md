@@ -12,7 +12,7 @@ struct, diziler, pointer, dinamik bellek, dosya okuma/yazma.
 - [x] Menü döngüsü ve kullanıcıdan görev alma
 - [x] Görev listeleme
 - [x] Tamamlandı işaretleme ve silme
-- [ ] Görevleri dosyaya kaydetme / yükleme
+- [x] Görevleri dosyaya kaydetme / yükleme
 
 ## Derleme ve çalıştırma
 gcc gorev.c -o gorev
