@@ -2,17 +2,48 @@
 #include <string.h>
 
 #define MAX_GOREV 20
+#define DOSYA_ADI "gorevler.txt"
 
 struct Gorev {
     char baslik[50];
     int tamamlandi;
 };
 
+void kaydet(struct Gorev gorevler[], int gorev_sayisi) {
+    FILE *dosya = fopen(DOSYA_ADI, "w");
+    if (dosya == NULL) {
+        printf("Dosya kaydedilemedi.\n");
+        return;
+    }
+    for (int i = 0; i < gorev_sayisi; i++) {
+        fprintf(dosya, "%d;%s\n", gorevler[i].tamamlandi, gorevler[i].baslik);
+    }
+    fclose(dosya);
+}
+
+int yukle(struct Gorev gorevler[]) {
+    FILE *dosya = fopen(DOSYA_ADI, "r");
+    if (dosya == NULL) {
+        return 0;
+    }
+    int sayi = 0;
+    while (sayi < MAX_GOREV &&
+           fscanf(dosya, "%d;", &gorevler[sayi].tamamlandi) == 1) {
+        fgets(gorevler[sayi].baslik, 50, dosya);
+        gorevler[sayi].baslik[strcspn(gorevler[sayi].baslik, "\n")] = '\0';
+        sayi++;
+    }
+    fclose(dosya);
+    return sayi;
+}
+
 int main() {
     struct Gorev gorevler[MAX_GOREV];
-    int gorev_sayisi = 0;
+    int gorev_sayisi = yukle(gorevler);
     int secim;
     char temp[50];
+
+    printf("%d gorev yuklendi.\n", gorev_sayisi);
 
     while (1) {
         printf("\n--- TO-DO ---\n");
@@ -87,7 +118,8 @@ int main() {
             printf("Silindi.\n");
         }
         else if (secim == 5) {
-            printf("Gorusuruz.\n");
+            kaydet(gorevler, gorev_sayisi);
+            printf("Kaydedildi. Gorusuruz.\n");
             break;
         }
         else {
